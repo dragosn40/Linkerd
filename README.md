@@ -53,9 +53,18 @@ gcloud container clusters create  $ORG-$PRODUCT-$ENV-cluster \
   
   linkerd version
   Step 2: Validate your Kubernetes cluster
+  
   linkerd check --pre
   
   Step 3: Install the control plane onto your cluster
+  
   linkerd install | kubectl apply -f -
   
+  Step 4: Explore Linkerd!
+  
+  linkerd viz dashboard &
+  
+  Step 5: Install the demo app
+  
+  curl -sL run.linkerd.io/emojivoto.yml | kubectl apply -f -
   
