@@ -4,6 +4,8 @@
 Setting up our Kubernetes Cluster
 Before installing Linkerd we need an underlying Kubernetes Cluster. If you don't have one, you can create on with the following steps:
 
+Seting up the Project
+
 export ORG=dragosn
 export PRODUCT=notepad
 export ENV=stg
@@ -43,3 +45,17 @@ gcloud container clusters create  $ORG-$PRODUCT-$ENV-cluster \
   --target-tags "$NETWORK_TARGET_TAG" \
   --priority 1000 \
   --description "Allow traffic on ports 8443, 8089 for linkerd control-plane components"
+  
+  Requirements
+  
+  Step 1: Install the CLI
+  curl -sL run.linkerd.io/install | sh
+  
+  linkerd version
+  Step 2: Validate your Kubernetes cluster
+  linkerd check --pre
+  
+  Step 3: Install the control plane onto your cluster
+  linkerd install | kubectl apply -f -
+  
+  
